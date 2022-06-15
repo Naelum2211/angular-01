@@ -1,3 +1,4 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { products } from '../products';
@@ -10,8 +11,13 @@ import { products } from '../products';
 export class ProductListComponent {
   products = products;
 
-  share() {
-    window.alert('The product has been shared!');
+   share(prodName: string) {
+    window.alert('The product' + prodName + 'has been shared!');
+  }
+  
+  onNotify(priceProd: number){
+    /* const priceDisplay = priceProd | currency; */
+    window.alert('The product price is $' + priceProd)
   }
 }
 

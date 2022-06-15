@@ -1,5 +1,54 @@
-<h2>Products</h2>
 
+<h2 style="margin-top: 3%;">Products</h2>
+<div>
+  <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+  <h3>primo modo senza tabella</h3>
+  <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+</div>
+
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + 'detail'" [routerLink]="['/products' , product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
+  <p *ngIf="product.description">
+    Description: {{product.description}}
+  </p>
+
+  <button (click)="share(product.name)">share</button>
+</div>
+<div>
+  <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+  <h3>secondo modo con tabella</h3>
+  <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>price</th>
+      <th>description</th>
+      <th colspan="2">operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td><a [title]="product.name + 'detail'" [routerLink]="['/products' , product.id]">
+          {{ product.name }}
+        </a></td>
+      <td>{{ product.price }}</td>
+      <td>{{product.description}}</td>
+      <td><button (click)="share(product.name)">share</button></td>
+      <td><app-product-alerts
+        [product]="product"
+        (notify)="onNotify(product.price)">
+      </app-product-alerts></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

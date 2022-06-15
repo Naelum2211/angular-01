@@ -1,0 +1,3 @@
+<p *ngIf="product && product.price > this.priceThreshold">
+    <button (click)="notify.emit(this.priceThreshold)">Notify Me - Price {{product.price | currency }} is over $ {{this.priceThreshold}}</button>
+</p>

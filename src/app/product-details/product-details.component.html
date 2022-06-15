@@ -1,0 +1,26 @@
+<div>
+    <h3>primo modo con la lista</h3>
+    <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+  </div> 
+<!-- primo modo con la lista -->
+<div *ngIf="product">
+    <li class="list-group" style="background-color: purple;">
+        <ul class="list-group-item">Product Details: {{product.id}}</ul>
+        <ul class="list-group-item">name: {{product.name}}</ul>
+        <ul class="list-group-item">price: {{product.price | currency}}</ul>
+        <ul class="list-group-item">description: {{product.description}}</ul>
+    </li>
+</div>
+<!-- secondo modo senza la lista -->
+<div>
+    <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+    <h3>secondo modo senza lista</h3>
+    <hr style="height: 5px; color:#1976d2; opacity: 0.8;">
+  </div>
+<div *ngIf="product" >
+    <h2>Product Details: {{product.id}}</h2>
+    <h3>{{product.name}}</h3>
+    <h4>{{product.price | currency}}</h4>
+    <p>{{product.description}}</p>
+</div>
+
